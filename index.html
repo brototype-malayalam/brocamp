@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"
+      integrity="sha512-8Q6Y9XnTbOE+JNvjBQwJ2H8S+UV4uA6hiRykhdtIyDYZ2TprdNmWOUaKdGzOhyr4dCyk287OejbPvwl7lrfqrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"
+      integrity="sha512-MOCpqoRoisCTwJ8vQQiciZv0qcpROCidek3GTFS6KTk2+y7munJIlKCVkFCYY+p3ErYFXCjmFjnfTTRSC1OHWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.19.3/babel.min.js"
+      integrity="sha512-vytpEU5Sc0GDeQdoU4eJh857yuOEGm+VqjO5FZwfplq4M7PKp8an9Lt0xeuwPoIA7enA9iVbjN1hI276uLWYqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Brocamp</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      brocamp.sort((first, second) => second.id - first.id);
+      const Student = ({ name, linkedin }) => (
+        <div className="student">
+          <h3>{name}</h3>
+          <a href={linkedin} target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      );
+      const element = (
+        <div className="brocamp">
+        <h1>Brocamp</h1>
+        <div className="container">
+          {brocamp.map(({ id, name, linkedin }) => (
+            <Student name={name} key={id} linkedin={linkedin} />
+          ))}
+        </div>
+        </div>
+      );
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(element);
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
